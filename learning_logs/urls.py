@@ -12,10 +12,21 @@ urlpatterns = [
     path('topics/', views.topics, name='topics'),
     # Detail page for a single topic.
     path('topics/<int:topic_id>/', views.topic, name='topic'),
-    # Page for adding a new toppic.
+
+    # Adding.
+    # Toppic.
     path('new_topic/', views.new_topic, name='new_topic'),
-    # Page for adding a new entry.
+    # Entry.
     path('new_entry/<int:topic_id>', views.new_entry, name='new_entry'),
-    # Page for editing an entry.
-    path('edit_entry/<int:entry_id>/', views.edit_entry, name='edit_entry')
+
+    # Editing.
+    # Entry.
+    path('edit_entry/<int:entry_id>/', views.edit_entry, name='edit_entry'),
+
+
+    # Deleting.
+    # Topic.
+    path('topics/delete_topic/<int:topic_id>', views.delete_topic, name='delete_topic'),
+    # Tntry.
+    path('topics/<int:topic_id>/delete_entry/<int:entry_id>/', views.delete_entry, name='delete_entry')
 ]
