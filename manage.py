@@ -3,9 +3,15 @@
 import os
 import sys
 
+from dotenv import read_dotenv
+
 
 def main():
     """Run administrative tasks."""
+
+    # Load enviroment variables.
+    read_dotenv()
+
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'learning_log.settings')
     try:
         from django.core.management import execute_from_command_line
