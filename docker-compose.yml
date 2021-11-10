@@ -9,7 +9,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     volumes:
-    - "/opt/postgresql/data/:/var/lib/postgresql/data/"
+      - "/opt/postgresql/data/:/var/lib/postgresql/data/"
   dj:
     build: .
     command: ./wait-for-it.sh db:5432 -- sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
@@ -19,6 +19,15 @@ services:
       - db
     networks:
       - backend
+    volumes:
+      - type: volume
+        source: code
+        target: /code/
+        volume:
+          nocopy: false
 
 networks:
   backend:
+
+volumes:
+  code:

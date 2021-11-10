@@ -31,6 +31,7 @@ elif os.environ.get("DEBUG") == "FALSE":
 
 ALLOWED_HOSTS = [
     '.localhost',
+    '192.168.0.*',
 ]
 
 
